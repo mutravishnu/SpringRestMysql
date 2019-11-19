@@ -37,6 +37,15 @@ public class CustomerController {
 
 		return customers;
 	}
+	@GetMapping("/customers/{id}")
+	public List<Customer> getAllCustomersById(int ID) {
+		System.out.println("Get all Customers...");
+
+		List<Customer> customers = new ArrayList<>();
+		repository.findAll().forEach(customers::add);
+
+		return customers;
+	}
 
 	@PostMapping(value = "/customers/create")
 	public Customer postCustomer(@RequestBody Customer customer) {
